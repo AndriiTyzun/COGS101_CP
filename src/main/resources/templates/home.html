@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:replace="fragments/header :: header-css">
+
+</head>
+
+<body>
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="sidebar">
+        <button class="closeBtn" onclick="closeNav()">&times;</button>
+
+        <form id="prForm">
+            <div>
+                Product:<select id="subject"></select>
+            </div>
+            <br>
+
+            <div>
+                Inventory:<br>
+                <input type="range" min="0" max="100" value="25" class="qtySlider" id="prQty">
+                <b id="sliderVal1"></b>
+            </div>
+            <div>
+                Additional cost (%):<br>
+                <input type="range" min="0" max="100" value="25" class="qtySlider" id="timeQty">
+                <b id="sliderVal2"></b>
+            </div>
+            <div>
+                TTS (month):<br>
+                <input type="range" min="0" max="24" value="12" class="qtySlider" id="endQty">
+                <b id="sliderVal3"></b>
+            </div>
+            <p id="warning"></p>
+
+            <div>
+                COGS:
+                <input type="text" id="result" disabled="disabled">
+                Profit:
+                <input type="text" id="resultP" disabled="disabled">
+            </div>
+
+            <div>
+                <button type='button' onclick="calculateCogs()" id="calcBtn">Calculate</button>
+            </div>
+        </form>
+
+
+    </div>
+
+    <div class="sidebarBtn" onclick="openNav()">
+        <button>Calculator</button>
+    </div>
+
+    <div class="container">
+        <div class="rowUpper">
+            <button  sec:authorize="hasRole('ROLE_ADMIN')" class="btn">
+                <a id="prNew" th:href="@{product/new}"><i class="fas fa-plus fa-2x"></i></a>
+            </button>
+
+            <div>
+                <span th:text="#{product.count} + ' ' + ${productsCount}"></span>
+            </div>
+        </div>
+
+        <div class="row" id="mContent">
+            <div class="col card-deck ml-5 my-3" th:if="${!productList.isEmpty()}" >
+                <div class="card" th:each="product : ${productList}">
+                    <div sec:authorize="hasRole('ROLE_ADMIN')" class="admin">
+                        <button class="btn">
+                            <a th:href="@{'product/delete/' + ${product.getId()}}" ><i class="fas fa-window-close"></i></a>
+                        </button>
+                        <button class="btn">
+                            <a th:href="@{'product/edit/' + ${product.getId()}}" ><i class="fas fa-pen-square"></i></a>
+                        </button>
+                    </div>
+
+                    <img class="card-img-top" th:if="${!product.getImageUrl().isEmpty()}" th:src="${product.getImageUrl()}" alt="Card image cap">
+
+                    <div class="card-body">
+                        <h4 class="card-title" th:text="${product.getName()}"></h4>
+                        <p class="card-text" th:text="${product.getDescription()}"></p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="prPrice" th:text="${product.getPrice()}"></p>
+                        <div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')">
+                            <a th:href="${'/cart/add/' + product.getId()}" class="btn btn-lg btn-outline-info btn-block" th:text="#{product.add}" ></a>
+                        </div>
+                        <div sec:authorize="!hasAnyRole('ROLE_ADMIN','ROLE_USER')">
+                            <a th:href="${'/login'}" class="btn btn-lg btn-outline-info btn-block" th:text="#{user.log_in}" ></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+    <script type="text/javascript" th:src="@{/js/lang.js}"></script>
+</body>
+
+</html>

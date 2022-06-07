@@ -1,0 +1,509 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: rgb(209, 209, 216);
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+}
+
+span {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color:#343A40;
+    color: whitesmoke;
+    padding:10px 50px 10px 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-size:15px;
+    line-height:15px;
+}
+
+.mediaLinks {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mediaLinks img{
+    width: 1vw;
+    height: 1vw;
+}
+
+.mediaLinks div{
+    width: 30%;
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.mediaLinks div p{
+    padding: 5px;
+    margin: 5px;
+    border-top: 1px solid whitesmoke;
+}
+
+.mediaLinksDivs a{
+    color: whitesmoke;
+}
+
+.btn {
+    padding-left: 10px;
+}
+
+.alert {
+    padding-top: 5px;
+}
+
+#header-username{
+    color: ghostwhite;
+}
+
+nav {
+    z-index: 2;
+    height: 60px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 15px;
+    transition: all 300ms;
+}
+
+.navbar-brand:hover, .info-slide:active {
+    transform: scale(1.2);
+}
+
+.ddMenu {
+    transition: 0.4s;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+
+    width: 10vw;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 0 0 15px 15px;
+}
+
+.ddMenu button {
+    transition: 0.4s;
+    background-color: #343A40;
+    color: lightgray;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+
+
+    width: 50%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.links {
+    transition: 0.4s;
+    display: none;
+    z-index: 1;
+}
+
+.links a {
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    text-decoration: none;
+    display: block;
+
+    background-color: lightgray;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.links a:hover {
+    color: lightgray;
+    background-color: #343A40;
+    transition: 0.4s;
+}
+
+.links div{
+    text-align: center;
+}
+
+.ddMenu:hover .links {
+    transition: 0.4s;
+    display: block;
+}
+
+.ddMenu:hover .menuButton{
+    transition: 0.4s;
+    width: 100%;
+}
+
+.container {
+    padding: 20px;
+    margin-bottom: 50px;
+    width: 70%;
+}
+
+#mContent {
+    margin-bottom: 100px;
+}
+
+#prNew {
+    padding: 8% 55% 8% 45%;
+}
+
+.rowUpper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rowUpper button{
+    width: 28%;
+    margin-left: 7%;
+}
+
+.rowUpper div{
+    margin-left: 7%;
+    margin-right: 2%;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-content: center;
+    justify-items: center;
+}
+
+.card-deck {
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+}
+
+.card {
+    margin-top: 20px;
+    min-width: 30%;
+    max-width: 30%;
+    border: 1px solid #343A40;
+    box-shadow: 2px 5px 10px 5px gray;
+}
+
+.card img {
+    min-height: 35vh;
+}
+
+.card-body p {
+    height: 120px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.card-body p::-webkit-scrollbar {
+    width: 0 !important
+}
+
+.card-footer {
+    color: whitesmoke;
+    background-color: #343A40;
+}
+
+.card-footer a{
+    color: gray;
+    transition: 0.4s;
+    border: 1px solid gray;
+}
+
+.card-footer a:hover{
+    transition: 0.4s;
+    color: whitesmoke;
+    background-color: #343A40;
+    border: 1px solid whitesmoke;
+}
+
+#cart {
+    width: 44px;
+    height: 44px;
+}
+
+.cartEntry {
+    width: 60vw;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amountControls a{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.amountControls a:hover{
+    background-color: gray;
+    color: whitesmoke;
+}
+
+.btn-primary {
+    transition: 0.4s;
+    color: gray;
+    background-color: whitesmoke;
+    border: 1px solid black;
+}
+
+.btn-primary:hover{
+    transition: 0.4s;
+    color: whitesmoke;
+    background-color: gray;
+    border: 1px solid black;
+}
+
+.btn {
+    transition: 0.4s;
+    color: gray;
+    background-color: whitesmoke;
+}
+
+.btn:hover {
+    transition: 0.4s;
+    color: whitesmoke;
+    background-color: gray;
+}
+
+.fa-window-close {
+    color: red;
+}
+
+.fa-pen-square:hover {
+    color: whitesmoke;
+}
+
+.sidebarBtn {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    height: 100vh;
+    width: 2vw;
+
+    transition: 0.4s;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #343A40;
+
+}
+
+.sidebarBtn button{
+    border: none;
+    background-color: inherit;
+
+    font-family: "Arial Black",sans-serif;
+    color: lightgray;
+    padding: 0;
+    margin: 0;
+    transform: rotate(90deg);
+}
+
+.sidebarBtn:hover{
+    transition: 0.4s;
+    background-color: gray;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 0;
+
+    z-index: 1;
+
+    transition: 0.4s;
+    background-color: #343A40;
+    overflow-x: hidden;
+    padding-top: 60px;
+}
+
+.closeBtn {
+    transition: 0.4s;
+    position: absolute;
+    top: 70px;
+    right: 25px;
+
+    color: lightgray;
+    font-size: 36px;
+    border: none;
+    background-color: inherit;
+}
+
+.closeBtn:hover{
+    transition: 0.4s;
+    color: white;
+    font-size: 42px;
+}
+
+#prForm {
+    color: lightgray;
+    font-family: Arial, sans-serif;
+    font-size: large;
+    position: absolute;
+    top: 150px;
+    left: 10%;
+    width: 80%;
+    height: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.qtySlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80%;
+    height: 15px;
+    background: lightgray;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.qtySlider:hover {
+    opacity: 1;
+}
+
+.qtySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 25px;
+    background: lightgray;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+#calcBtn {
+    transition: 0.4s;
+    border-radius: 0;
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+#calcBtn:hover {
+    transition: 0.4s;
+    border-radius: 15px;
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+    background-color: gray;
+}
+
+#result {
+    width: 100%;
+}
+
+#subject {
+    width: 100%;
+}
+
+.aboutUs {
+    width:100%;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#pageTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    height: 95vh;
+    top: 60px;
+
+    background: url("./aboutPage.jpg");
+    background-size: cover;
+}
+
+#pageTitle div {
+    font-family: Bahnschrift, sans-serif;
+    font-size: 45px;
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+#pageContent {
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+
+    font-family: "Arial", sans-serif;
+    font-size: 25px;
+}
+
+#pageContent h3{
+    font-family: "Arial", sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.OrderList {
+    margin-top: 50px;
+    color: #343A40;
+}
+.OrderList tr{
+    margin: 5px;
+    border: 1px solid #343A40;
+}
+.OrderList td{
+    width: 150px;
+    margin: 5px;
+    padding: 5px;
+    border-left: 1px solid #343A40;
+    text-align: center;
+}
+.cogsData {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #343A40;
+}
+
+.cogsData1 {
+    display: none;
+}
+.cogsData2 {
+    display: none;
+}

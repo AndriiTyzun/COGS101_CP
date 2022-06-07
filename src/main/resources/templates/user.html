@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+
+<head th:replace="fragments/header :: header-css">
+</head>
+
+<body>
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="container">
+        <h2 th:text="'Prsonal room of <<' + ${user.getUsername()} + '>>'"></h2>
+        <br>
+
+        <h3 th:text="#{user.firstname} + ': ' + ${user.getFirstName()}"></h3>
+        <h3 th:text="#{user.lastname} + ': ' + ${user.getLastName()}"></h3>
+        <h3 th:text="#{user.age} + ': ' + ${user.getAge()}"></h3>
+        <h3 th:text="#{user.city} + ': ' + ${user.getCity()}"></h3>
+        <h3 th:text="#{user.gender} + ': ' + ${user.getGender()}"></h3>
+
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <div class="OrderList">
+                <h2>Order List:</h2>
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Order id</p>
+                            </td>
+                            <td>
+                                <p>Product name</p>
+                            </td>
+                            <td>
+                                <p>Amount</p>
+                            </td>
+                            <td>
+                                <p>Date</p>
+                            </td>
+                            <td>
+                                <p>Customer</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div th:if="${orders.isEmpty()}">
+                    <h4>List is Empty.</h4>
+                </div>
+                <div class="order" th:each="order : ${orders}">
+
+                    <table>
+                        <tr>
+                            <td>
+                                <p th:text="${order.getId()}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.getProductName()}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.getAmount()}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.getDate()}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.getUsername()}"></p>
+                            </td>
+                            <td>
+                                <a th:href="@{'admin/delete/' + ${order.getId()}}"><i class="fas fa-window-close"></i></a>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <div sec:authorize="hasRole('ROLE_USER')">
+            <div class="OrderList">
+                <h2>Order List:</h2>
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Order id</p>
+                            </td>
+                            <td>
+                                <p>Product name</p>
+                            </td>
+                            <td>
+                                <p>Amount</p>
+                            </td>
+                            <td>
+                                <p>Date</p>
+                            </td>
+                            <td>
+                                <p>Customer</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div th:if="${userOrders.isEmpty()}">
+                    <h4>List is Empty.</h4>
+                </div>
+                <div class="order" th:each="order : ${userOrders}">
+
+                    <table>
+                        <tr>
+                            <td>
+                                <p th:text="${order.getId()}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.getProductName()}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.getAmount()}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.getDate()}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.getUsername()}"></p>
+                            </td>
+
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

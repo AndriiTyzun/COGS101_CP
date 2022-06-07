@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: header-css">
+</head>
+
+<body>
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="aboutUs">
+
+        <div id="pageTitle">
+            <div>
+                <p>Cost of goods sold</p>
+            </div>
+        </div>
+
+
+        <div id="pageContent">
+            <br>
+            <h3>
+                What is cost of goods sold?<br>
+            </h3>
+            <p>
+                Cost of goods sold is the total amount your business paid as a cost directly related to the sale of products.<br><br>
+                Depending on your business, that may include products purchased for resale, raw materials, packaging, and direct labor related to producing or selling the good.<br><br>
+                In other words, the materials that go into the product and the labor that goes into making each unit may be included in cost of goods sold. If you incur sales costs
+                specific to that item, like commissions, those costs may also be included in COGS. The accounting term for this is direct costs.
+            </p>
+            <br>
+            <br>
+            <h3>
+                Why should you be interested?<br>
+            </h3>
+            <p>
+                To get more comfortable with your business’s numbers, think of your business in these ways to better understand your COGS.
+                <br><br>- <b>Cost of goods sold is a major contributor to margins</b>: Your business will never make money if cost of goods sold is higher than your product pricing. Always track COGS to help ensure you generate an operating profit.
+                    <br>- <b>Get a fine-tuned understanding of COGS</b>: Don’t just look at the high-level COGS result. Look at every underlying cost for savings opportunities.
+                    <br>- <b>Strategically reduce cost of goods sold</b>: Even small progress on COGS leads to higher profits. For low-margin businesses like restaurants and general retailers, a small difference in COGS can make or break your business.
+                    <br>- <b>Keep a long-term focus</b>: Take care to avoid making cuts that harm your customer experience, product quality, or employee experience, as they could turn around and harm your long-term outlook.
+                <br><br>You don’t need a strong financial background to use COGS to build a more profitable long-term business strategy. Anyone can use COGS to improve their business.
+            </p>
+        </div>
+
+        <div class="emailForm">
+            <form method="post">
+                <input type="text" id="commentText" placeholder="Comment">
+                <input type="text" id="commentEmail" placeholder="Email">
+                <input type="button" value="Send Email" onclick="sendEmail()"/>
+            </form>
+        </div>
+
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+
+</html>

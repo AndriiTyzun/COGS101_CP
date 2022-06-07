@@ -1,0 +1,44 @@
+<!doctype HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+    <div th:fragment="footer">
+        <footer>
+            <div class="mediaLinks">
+                <div>
+                    <h5>Find us on:</h5>
+                </div>
+                <div class="mediaLinksDivs">
+                    <a href="https://uk-ua.facebook.com/">
+                        <img th:src="@{images/facebook.png}">
+                        Facebook
+                    </a>
+                    <a href="https://twitter.com/">
+                        <img th:src="@{images/twitter.png}">
+                        Twitter
+                    </a>
+                    <a href="https://www.reddit.com/">
+                        <img th:src="@{images/reddit.png}">
+                        Reddit
+                    </a>
+                    <a href="https://github.com/">
+                        <img th:src="@{images/github.png}">
+                        GitHub
+                    </a>
+                </div>
+                <div>
+                    <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+                        <a>COGS101</a>.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" th:src="@{webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+        <script type="text/javascript" th:src="@{webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>
+    </div>
+</body>
+
+</html>

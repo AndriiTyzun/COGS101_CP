@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: header-css">
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container">
+    <div th:if="${!products.isEmpty()}" class="col-3">
+        <h2 th:text="#{cart.title}"></h2>
+        <div class="cartEntry" th:each="product : ${products.entrySet()}">
+            <div>
+                <h3 th:text="${'Product name: ' + product.getKey().getName()}"></h3>
+                <h4 th:text="${'Product amount: ' + product.getValue()}"></h4>
+                <h4 th:text="${'Product price: ' + product.getKey().getPrice() + '$'}"></h4>
+                <a th:href="@{'/cart/remove/{id}'(id=${product.getKey().getId()})}" class="col-md-1">
+                    <button type="button" class="btn btn-primary" th:text="#{cart.remove}"></button>
+                </a>
+                <br>
+
+                <p class="cogsData1" th:text="${product.getValue()}"></p>
+                <p class="cogsData2" th:text="${product.getKey().getPrice()}"></p>
+            </div>
+            <div class="amountControls">
+                <a th:href="@{'/cart/addA/{id}'(id=${product.getKey().getId()})}"><i class="fas fa-plus"></i></a>
+                <a th:href="@{'/cart/subtractA/{id}'(id=${product.getKey().getId()})}"><i class="fas fa-minus"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div th:if="${products.isEmpty()}" class="col-3">
+        <h2 th:text="#{cart.empty}"></h2>
+    </div>
+
+    <br>
+    <a th:href="@{'/cart/clear/'}" class="col-md-1">
+        <button type="button" class="btn btn-info" th:text="#{cart.clear}"></button>
+    </a>
+
+    <br>
+    <div class="row">
+        <h3 th:text="#{cart.total} + ' ' + ${totalPrice}"></h3>
+        <a th:href="@{'/cart/checkout/'}" class="col-md-1">
+            <button type="button" class="btn btn-success" th:text="#{cart.checkout}"></button>
+        </a>
+    </div>
+    <div th:if="${!products.isEmpty()}" class="cogsData">
+        <h4>Predicted COGS and profit for average market values:</h4>
+        <p id="cogsDataRes"></p>
+        <p id="cogsDataResP"></p>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+<script type="text/javascript" th:src="@{/js/cogs.js}"></script>
+</body>
+
+</html>
